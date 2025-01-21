@@ -43,15 +43,26 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
             key={item.path}
             to={item.path}
             className={({ isActive }) =>
-              `flex items-center p-4 transition-all py-6 duration-200 ${
+              `relative flex items-center py-6 transition-all duration-300 ease-in-out ${
                 isActive ? 'bg-blue-600' : 'hover:bg-gray-700'
-              } ${isCollapsed ? 'justify-center' : 'gap-3'}`
+              }`
             }
           >
-            <span className="transform transition-transform duration-200 hover:scale-110">{item.icon}</span>
-            {!isCollapsed && (
-              <span className="transform transition-opacity duration-300">{item.label}</span>
-            )}
+            <div className={`
+              min-w-[64px] flex justify-center transition-all duration-300
+              ${!isCollapsed && 'mr-3'}
+            `}>
+              <span className="transition-transform duration-200 hover:scale-110">
+                {item.icon}
+              </span>
+            </div>
+            <span className={`
+              absolute left-16 whitespace-nowrap
+              transition-all duration-300 ease-in-out
+              ${isCollapsed ? 'opacity-0 -translate-x-10' : 'opacity-100 translate-x-0'}
+            `}>
+              {item.label}
+            </span>
           </NavLink>
         ))}
       </nav>
