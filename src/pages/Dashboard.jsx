@@ -11,8 +11,8 @@ const Dashboard = () => {
     ],
     collaborators: [
       { name: 'Iyangaar Bakery', status: 'active' },
-      { name: 'Iyangaar Bakery', status: 'active' },
-      { name: 'Iyangaar Bakery', status: 'active' },
+      { name: 'Ragam Bakery', status: 'active' },
+      { name: 'Lala Sweets', status: 'active' },
     ],
     company: {
       name: 'Cocoa Cakes',
