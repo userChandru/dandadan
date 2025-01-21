@@ -29,7 +29,7 @@ const Dashboard = () => {
         
         <div className="grid grid-cols-2 gap-6 mb-6">
           {analyticsData.metrics.map((metric, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
+            <div key={index} className="bg-white p-6 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md hover:scale-105">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-gray-600">{metric.icon}</span>
                 <h3 className="text-gray-500 text-sm">{metric.label}</h3>
@@ -67,7 +67,7 @@ const Dashboard = () => {
             {analyticsData.collaborators.map((collaborator, index) => (
               <div
                 key={index}
-                className="p-4 rounded-lg border border-gray-200 bg-gray-50"
+                className="p-4 rounded-lg border border-gray-200 bg-gray-50 transition-all duration-300 hover:shadow-md hover:scale-102"
               >
                 <div className="flex items-center">
                   <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
@@ -79,7 +79,7 @@ const Dashboard = () => {
         </div>
 
         {/* Company Section */}
-        <div className="mt-6 p-4 rounded-lg border border-gray-200 bg-gray-50">
+        <div className="mt-6 p-4 rounded-lg border border-gray-200 bg-gray-50 transition-all duration-300 hover:shadow-md">
           <div className="flex items-center gap-4">
             <div className="bg-white p-3 rounded-full">
               {analyticsData.company.logo}

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
-import { useState } from 'react';
+
 const MainLayout = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+
   return (
     <div className="flex h-screen">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
