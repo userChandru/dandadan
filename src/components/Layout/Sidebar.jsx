@@ -14,25 +14,37 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
   ];
 
   return (
-    <div className={`bg-gray-900 text-white transition-all duration-300 ease-in-out relative ${
-      isCollapsed ? 'w-16' : 'w-64'
-    }`}>
+    <div className={`
+      bg-gray-900 text-white relative
+      transition-[width] duration-500 ease-in-out
+      ${isCollapsed ? 'w-16' : 'w-64'}
+    `}>
       <div className="flex items-center p-4">
         <h1 
-          className={`text-2xl font-bold whitespace-nowrap transform transition-all duration-300 ease-in-out ${
-            isCollapsed ? 'opacity-0' : 'opacity-100'
-          }`}
+          className={`
+            text-2xl font-bold whitespace-nowrap
+            transition-all duration-500 ease-in-out
+            ${isCollapsed ? 'opacity-0 -translate-x-10' : 'opacity-100 translate-x-0'}
+          `}
         >
           Cocoa Cakes
         </h1>
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
-          className={`absolute ${!isCollapsed && 'right-2'} top-4 min-w-[32px] h-[32px] flex items-center justify-center hover:bg-gray-800 rounded-lg transition-all duration-200 transform hover:scale-110 z-50`}
+          className={`
+            absolute top-4
+            min-w-[32px] h-[32px]
+            flex items-center justify-center
+            rounded-lg z-50
+            transition-all duration-500 ease-in-out
+            hover:bg-gray-800 hover:scale-110
+            ${!isCollapsed ? 'right-2' : 'right-[14px]'}
+          `}
         >
           {isCollapsed ? (
-            <Icons.Menu className="w-7 h-7" />
+            <Icons.Menu className="w-7 h-7 transition-transform duration-300" />
           ) : (
-            <Icons.X className="w-7 h-7" />
+            <Icons.X className="w-7 h-7 transition-transform duration-300" />
           )}
         </button>
       </div>
@@ -42,14 +54,15 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
           <NavLink
             key={item.path}
             to={item.path}
-            className={({ isActive }) =>
-              `relative flex items-center py-6 transition-all duration-300 ease-in-out ${
-                isActive ? 'bg-blue-600' : 'hover:bg-gray-700'
-              }`
-            }
+            className={({ isActive }) => `
+              relative flex items-center py-6
+              transition-colors duration-200 ease-in-out
+              ${isActive ? 'bg-blue-600' : 'hover:bg-gray-700'}
+            `}
           >
             <div className={`
-              min-w-[64px] flex justify-center transition-all duration-300
+              min-w-[64px] flex justify-center
+              transition-all duration-500 ease-in-out
               ${!isCollapsed && 'mr-3'}
             `}>
               <span className="transition-transform duration-200 hover:scale-110">
@@ -58,8 +71,11 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
             </div>
             <span className={`
               absolute left-16 whitespace-nowrap
-              transition-all duration-300 ease-in-out
-              ${isCollapsed ? 'opacity-0 -translate-x-10' : 'opacity-100 translate-x-0'}
+              transition-all duration-500 ease-in-out
+              ${isCollapsed 
+                ? 'opacity-0 -translate-x-10 pointer-events-none' 
+                : 'opacity-100 translate-x-0'
+              }
             `}>
               {item.label}
             </span>
